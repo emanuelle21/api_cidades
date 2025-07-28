@@ -24,7 +24,13 @@ ALLOWED_HOSTS = ['api-cidades-0ebn.onrender.com', '127.0.0.1', 'localhost']
 
 # ✅ Banco de dados (produção usa PostgreSQL)
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {
+            'driver': 'psycopg',
+        },
+        # demais configs...
+    }
 }
 
 
