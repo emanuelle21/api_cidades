@@ -5,11 +5,11 @@ services:
     name: api-cidades
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn config.wsgi
+    startCommand: gunicorn config.wsgi:application
     envVars:
       - key: SECRET_KEY
-        value: sua-secret-key
+        value: 1t^3nz!y-=trgiuizrutktda9)4ljr=rkpe-01&lq81fjx@_-#
       - key: DEBUG
-        value: false
+        value: False
       - key: DATABASE_URL
-        value: seu-link-do-railway
+        value: postgresql://postgres:IsixWOPZZevbOVJDQDyJDDPYNYVqjTJy@turntable.proxy.rlwy.net:23964/railway
