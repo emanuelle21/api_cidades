@@ -21,7 +21,7 @@ SECRET_KEY = config('SECRET_KEY')  # só essa linha, remove a outra
 DEBUG = config('DEBUG', cast=bool, default=False)
 
 # ✅ Libere o domínio da Render:
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
+ALLOWED_HOSTS = ['api-cidades-0ebn.onrender.com', '127.0.0.1', 'localhost']
 
 # ✅ Banco de dados (produção usa PostgreSQL na Render)
 DATABASES = {
