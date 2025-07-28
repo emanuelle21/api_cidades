@@ -9,17 +9,21 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
 from pathlib import Path
-
 import dj_database_url
 from decouple import config
 
-SECRET_KEY = config('SECRET_KEY')
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# ✅ Segurança
+SECRET_KEY = config('SECRET_KEY')  # só essa linha, remove a outra
+
 DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = ['*']
+# ✅ Libere o domínio da Render:
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
 
+# ✅ Banco de dados (produção usa PostgreSQL na Render)
 DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
